@@ -29,5 +29,23 @@ public class Lec1 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        try {
+            FileReader fr = new FileReader("file.txt");
+            int c;
+            while ((c = fr.read()) != -1) {
+                char ch = (char) c;
+                if (ch == '\n') {
+                    System.out.print(ch);
+                } else {
+                    System.out.print(ch);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
