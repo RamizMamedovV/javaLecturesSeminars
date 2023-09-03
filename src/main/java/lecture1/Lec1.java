@@ -6,7 +6,7 @@ import java.io.*;
 public class Lec1 {
     public static void main(String[] args) {
 //                  false = нужно ли дописывать иди перезаписать = new
-        try (FileWriter fw = new FileWriter("file.txt", true)) {
+        try (FileWriter fw = new FileWriter("file.txt", false)) {
             fw.write("line1");
             fw.write('\n');
             fw.write('4');
@@ -35,11 +35,11 @@ public class Lec1 {
             int c;
             while ((c = fr.read()) != -1) {
                 char ch = (char) c;
-                if (ch == '\n') {
+                //if (ch == '\n') {
+//                    System.out.print(ch);
+//                } else {
                     System.out.print(ch);
-                } else {
-                    System.out.print(ch);
-                }
+                //}
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
