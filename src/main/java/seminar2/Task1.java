@@ -39,11 +39,8 @@ public class Task1 {
 
     public static String createrString(String str, int amount) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < amount; i++) {
-            sb.append(str);
-        }
-        String res = sb.toString();
-        return res;
+        sb.append(String.valueOf(str).repeat(Math.max(0, amount)));
+        return sb.toString();
     }
 
     public static boolean writeFile(String str) {
@@ -86,9 +83,8 @@ public class Task1 {
             }
         }
         res1.append(cnt).append(count);
-        String res = res1.toString();
 
-        return res;
+        return res1.toString();
     }
 
 
