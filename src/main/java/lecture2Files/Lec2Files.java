@@ -1,6 +1,6 @@
 package lecture2Files;
 
-import java.io.File;
+import java.io.*;
 
 /*стра
                         Что такое API для нас: строки
@@ -22,17 +22,35 @@ equalsIgnoreCase(): сравнивает строки без учета реги
 regionMatches(): сравнивает подстроки в строках
 Ч*/
 public class Lec2Files {
-    public static void main(String[] args) {
-        String[] name = {"z", "f", "l", "M"};
-        System.out.println(String.join("", name));
-        System.out.println(String.join(";", name));
+    public static void main(String[] args) throws IOException {
+//        String[] name = {"z", "f", "l", "M"};
+//        System.out.println(String.join("", name));
+//        System.out.println(String.join(";", name));
+//
+//        String pathProject = System.getProperty("user.dir");
+//        String pathFile = pathProject.concat("/file.txt");
+//        File f3 = new File(pathFile);
+//        System.out.println(f3.getAbsolutePath ());
 
-        String pathProject = System.getProperty("user.dir");
-        String pathFile = pathProject.concat("/file.txt");
-        File f3 = new File(pathFile);
-        System.out.println(f3.getAbsolutePath ());
 
+        String file = "file.txt";
+        FileWriter fw = new FileWriter(file, false);
+        fw.write("line1\n");
+        fw.write("line2\n");
+        fw.flush();
 
+        FileReader fr = new FileReader(file);
+        int st;
+        char ch;
+        while ((st = fr.read()) != -1) {
+            ch = (char)st;
+            System.out.print(ch);
+        }
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String str;
+        while ((str = br.readLine()) != null) {
+            System.out.println(str);
+        }
     }
 }
 /*                      Работа с файловой системой

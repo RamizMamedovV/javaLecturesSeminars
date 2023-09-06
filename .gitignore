@@ -30,6 +30,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+file.txt
 
 ### VS Code ###
 .vscode/
