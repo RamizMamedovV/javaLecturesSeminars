@@ -3,9 +3,13 @@ package seminar2;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Task1 {
+    static Logger logger = Log.log(Task1.class.getName());
     public static void main(String[] args) {
+        logger.log(Level.INFO, "Мы запустили проект!");
 
         // Task1
 /* Дано четное число N (>0) и строки c1 и c2.
@@ -30,7 +34,7 @@ public class Task1 {
         /*Напишите метод, который составит строку, состоящую из 100 повторений слова TEST и метод,
         который запишет эту строку в простой текстовый файл, обработайте исключения.*/
 
-        String string = createrString("TEST\n", 100);
+        String string = createrString("TEST\n", 5);
         System.out.println(string);
         System.out.println(writeFile(string));
 
@@ -41,6 +45,7 @@ public class Task1 {
         StringBuilder sb = new StringBuilder();
         sb.append(String.valueOf(str).repeat(Math.max(0, amount)));
         return sb.toString();
+        // return "TEST".repeat(100);
     }
 
     public static boolean writeFile(String str) {
