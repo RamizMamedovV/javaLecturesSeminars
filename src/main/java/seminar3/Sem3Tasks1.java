@@ -1,11 +1,8 @@
 package seminar3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-public class ExSem3Tasks {
+public class Sem3Tasks1 {
     public static void main(String[] args) {
 
         /*                  Task1
@@ -23,9 +20,11 @@ public class ExSem3Tasks {
 //        System.out.println(list);
 
 
-        /*                  Task2
+        /*                  Task 2.0 and 2.1
  Заполнить список названиями планет Солнечной системы в произвольном порядке
- с повторениями. Вывести название каждой планеты и количество его повторений в списке.*/
+ с повторениями. Вывести название каждой планеты и количество его повторений в списке.
+
+ 2.1 Пройти по списку из предыдущего задания 2.0 и удалить повторяющиеся элементы*/
 
         Random random = new Random();
         List<String> planets = new ArrayList<>();
@@ -35,6 +34,7 @@ public class ExSem3Tasks {
         }
         System.out.println(planets);
 
+
         List<String> res = new ArrayList<>(5);
         for (int i = 0; i < planArr.length; i++) {
             int count = 0;
@@ -43,8 +43,25 @@ public class ExSem3Tasks {
                     count++;
                 }
             }
-            res.add(planArr[i] + count);
+            res.add(planArr[i] + " : " + count);
         }
         System.out.println(res);
+
+        // Task 2.1
+
+        int length = planets.size();
+        for (int i = 0; i < length; i++) {
+            String temp = planets.get(i);
+            for (int j = i + 1; j < length; j++) {
+                if (temp.equals(planets.get(j))) {
+                    planets.remove(j);
+                    j--;    // Уменьшаем размер списка, так как удалили элемент
+                    // Уменьшаем индекс j, чтобы проверить новый элемент на текущей позиции
+                    length--;
+                }
+            }
+        }
+        System.out.println(planets);
+
     }
 }
