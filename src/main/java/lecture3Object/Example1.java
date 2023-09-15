@@ -104,19 +104,24 @@ ListIterator<E>
 https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html
 hasPrevious(), E previous(), nextIndex(), previousIndex(), set(E e), add(E e)
 */
-//        List<Integer> list = List.of(1,2,12,22,123);
-//
-////        for (int i : list) {
-////            System.out.printf("%d ", i);    // 1 2 12 22 123
-////        }
-//
-//        Iterator<Integer> col = list.iterator();
-//        System.out.println();
-//
-//        while (col.hasNext()) {
-//            // col.remove();   // UnsupportedOperationException
-//            System.out.printf("%d ", col.next()); // 1 2 12 22 123
+
+        List<Integer> list = List.of(1,2,12,22,123);
+
+//        for (int i : list) {
+//            System.out.printf("%d ", i);    // 1 2 12 22 123
 //        }
+
+        Iterator<Integer> col = list.iterator();
+        System.out.println();
+
+        StringBuilder sb = new StringBuilder();
+        while (col.hasNext()) {
+            // col.remove();   // UnsupportedOperationException нельзя удалять
+            //System.out.printf("%d ", col.next()); // 1 2 12 22 123
+            // col.next(); нельзя при итерации 2 раза обращаться
+            sb.append(col.next() + " ");  // 1 2 12 22 123
+        }
+        System.out.println(sb);
 
     }
 
