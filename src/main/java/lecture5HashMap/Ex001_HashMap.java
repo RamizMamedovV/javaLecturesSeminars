@@ -41,6 +41,11 @@ public class Ex001_HashMap {
         // иначе можно самому задать этот "%" : например 1.0f - 100 %
         Map<Integer,String> map3 = new HashMap<>(9, 1.0f);
 
+                            // неизменяемый Map
+
+// Map<Character, Character> bracketPairs = Map.of('{', '}', '<', '>', '(', ')', '[', ']');
+        // map = Map.ofEntries(Map.entry('[', ']'), Map.entry('(', ')'));
+
 /*      HashMap. Любознательным
 ● Хэш-функции и хэш-таблицы
 ● Прямое связывание (хэширование с цепочками)
