@@ -9,6 +9,6 @@ public class PointMethod {
         Point b = new Point(5, 4);
         System.out.println(b.toString("B"));
         var res = Point.dist(a, b);
-        System.out.printf("distance = " + res);
+        System.out.printf("distance = %.2f ", res);
     }
 }
