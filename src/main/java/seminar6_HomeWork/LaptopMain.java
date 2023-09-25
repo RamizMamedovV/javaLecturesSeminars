@@ -5,12 +5,12 @@ import java.util.*;
 public class LaptopMain {
     public static void main(String[] args) throws Exception {
         Set<Laptop> laptopSet = new HashSet<>();
-        laptopSet.add(new Laptop(Brand.Hp, Color.black));
-        laptopSet.add(new Laptop(Brand.Hp, Color.grey));
-        laptopSet.add(new Laptop(Brand.Hp, Color.silver));
-        laptopSet.add(new Laptop(Brand.Acer, Color.silver));
-        laptopSet.add(new Laptop(Brand.Acer, Color.grey));
-        laptopSet.add(new Laptop(Brand.Asus, Color.black));
+        laptopSet.add(new Laptop(Brand.HP, Color.BLACK));
+        laptopSet.add(new Laptop(Brand.HP, Color.GREY));
+        laptopSet.add(new Laptop(Brand.HP, Color.SILVER));
+        laptopSet.add(new Laptop(Brand.ACER, Color.SILVER));
+        laptopSet.add(new Laptop(Brand.ACER, Color.GREY));
+        laptopSet.add(new Laptop(Brand.ASUS, Color.BLACK));
 
         Set<Brand> brandSet = new TreeSet<>();
         Set<Color> colorSet = new TreeSet<>();
@@ -24,13 +24,13 @@ public class LaptopMain {
         if (userEnter == 1) {
             System.out.println(brandSet);
             System.out.println("Введите бренд, для фильтрации:");
-            String filter = sc.nextLine();
+            Brand filter = Brand.valueOf(sc.nextLine().toUpperCase());
             userFilter.put("Brand", filter);
 
         } else if (userEnter == 2) {
             System.out.println(colorSet);
             System.out.println("Введите цвет, для фильтрации:");
-            String filter = sc.nextLine();
+            Color filter = Color.valueOf(sc.nextLine().toUpperCase());
             userFilter.put("Color", filter);
 
         }
@@ -56,14 +56,17 @@ public class LaptopMain {
                 Object enValue = entries.getValue();
 
                 if (enKey.equals("Brand")) {
-                    System.out.println("Brand");
-//                    if (laptops.getBrand().equals((String)enValue)) {
-//                        isAvailable = true;
-//                    }
+                    if (laptops.getBrand().equals(enValue)) {
+                        isAvailable = true;
+                    }
                 } else if (enKey.equals("Color")) {
-                    System.out.println("color");
+                    if (laptops.getColor().equals(enValue)) {
+                        isAvailable = true;
+                    }
                 }
-
+            }
+            if (isAvailable) {
+                System.out.println(laptops);
             }
         }
     }
