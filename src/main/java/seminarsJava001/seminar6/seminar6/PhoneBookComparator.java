@@ -1,4 +1,4 @@
-package seminarsJava001.seminar6;
+package seminarsJava001.seminar6.seminar6;
 
 import java.util.ArrayList;
 import java.util.Comparator;

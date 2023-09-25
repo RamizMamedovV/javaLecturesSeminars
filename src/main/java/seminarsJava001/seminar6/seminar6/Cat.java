@@ -1,4 +1,4 @@
-package seminarsJava001.seminar6;
+package seminarsJava001.seminar6.seminar6;
 
 import java.time.LocalDate;
 import java.util.Objects;

@@ -1,9 +1,9 @@
-package seminarsJava001.seminar6;
+package seminarsJava001.seminar6.seminar6;
 
 import java.time.LocalDate;
 import java.util.*;
 
-public class Main {
+public class CatMain {
     public static void main(String[] args) {
         Cat cat1 = new Cat("Barsik", LocalDate.of(2020, 1,1));
         Cat cat2 = new Cat("Pushok", LocalDate.of(2020, 1,2));

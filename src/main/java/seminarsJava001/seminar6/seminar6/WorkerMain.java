@@ -1,9 +1,9 @@
-package seminarsJava001.seminar6;
+package seminarsJava001.seminar6.seminar6;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class ExMainWorker {
+public class WorkerMain {
     public static void main(String[] args) {
         Worker w1 = new Worker();
         w1.firstName = "Имя_1";

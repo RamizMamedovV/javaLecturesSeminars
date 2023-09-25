@@ -1,4 +1,6 @@
-package seminarsJava001.seminar6;
+package seminarsJava001.seminar6.seminar6;
+
+import seminarsJava001.seminar6.seminar6.PhoneBookComparator;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
