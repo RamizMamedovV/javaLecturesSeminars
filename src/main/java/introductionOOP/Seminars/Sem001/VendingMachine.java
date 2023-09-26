@@ -11,8 +11,7 @@ public class VendingMachine {
 
     public BottleOfMilk getBottleOfMilk(String name, double volume) {
         for (Product product : products) {
-            if (product instanceof BottleOfMilk) {
-                BottleOfMilk bottleOfMilk = (BottleOfMilk) product;
+            if (product instanceof BottleOfMilk bottleOfMilk) {
                 if (bottleOfMilk.getName().equals(name)
                 && bottleOfMilk.getVolume() == volume) {
                     return bottleOfMilk;

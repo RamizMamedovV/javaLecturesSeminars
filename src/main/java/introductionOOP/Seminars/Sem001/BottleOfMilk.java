@@ -4,7 +4,7 @@ public class BottleOfMilk extends Product {
     private double volume;
     private int fat;
 
-    public BottleOfMilk(String name, String brand, double price, double volume, int fat) {
+    public BottleOfMilk(String name, String brand, double price, double volume, int fat, int i) {
         super(name, brand, price);
         this.volume = volume;
         this.fat = fat;
