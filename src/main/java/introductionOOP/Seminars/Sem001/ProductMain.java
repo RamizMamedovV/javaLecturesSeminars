@@ -1,5 +1,8 @@
 package introductionOOP.Seminars.Sem001;
 
+import introductionOOP.Seminars.Sem001.BottleOfWater;
+import introductionOOP.Seminars.Sem001.Product;
+
 public class ProductMain {
     public static void main(String[] args) {
         Product product1 = new Product();

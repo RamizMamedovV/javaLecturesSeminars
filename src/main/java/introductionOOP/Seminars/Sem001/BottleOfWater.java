@@ -1,6 +1,6 @@
 package introductionOOP.Seminars.Sem001;
 
-public class BottleOfWater extends Product{
+public class BottleOfWater extends Product {
     private int volume;
 
     public int getVolume() {
