@@ -1,7 +1,4 @@
-package introductionOOP.Seminars.Sem001;
-
-import introductionOOP.Seminars.Sem001.BottleOfWater;
-import introductionOOP.Seminars.Sem001.Product;
+package OOP_Seminar_1;
 
 import java.util.ArrayList;
 
@@ -17,6 +14,8 @@ public class ProductMain {
                                 , 50.00, 1);
         BottleOfWater water2 = new BottleOfWater("ooo Бел", "Вода1"
                                 , 50.00, 1);
+        Chocolate choco1 = new Chocolate("ooo Choco", "Chocolate"
+                                , 250.00, 60);
 
         ArrayList<Product> products = new ArrayList<>();
         products.add(milk1);
@@ -27,9 +26,11 @@ public class ProductMain {
         products.add(water2);
         products.add(water2);
         products.add(water1);
+        products.add(choco1);
 
         VendingMachine vendingMachine = new VendingMachine(products);
-        System.out.println(vendingMachine.getBottleOfMilk("ooo Б", 0.5));
+        System.out.println(vendingMachine.getBottleOfMilk("ooo Бел", 1.5));
+        System.out.println(vendingMachine.getChocolate("ooo Choco", 60));
 
 
     }

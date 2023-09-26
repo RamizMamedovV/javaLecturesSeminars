@@ -1,4 +1,4 @@
-package introductionOOP.Seminars.Sem001;
+package OOP_Seminar_1;
 
 public class Product {
     String name;
