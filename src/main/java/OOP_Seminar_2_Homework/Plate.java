@@ -3,7 +3,7 @@ package OOP_Seminar_2_Homework;
 public class Plate {
     private int food;
     public Plate(int food) {
-        this.food = food;
+        setFood(food);
     }
 
     public int getFood() {
@@ -11,7 +11,7 @@ public class Plate {
     }
 
     public void setFood(int food) {
-        this.food = food;
+        if (food > 0) this.food = food;
     }
 
     public void info() {

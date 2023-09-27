@@ -30,16 +30,17 @@ public class Cat implements Eatable {
     @Override
     public boolean eat(int food) {
         if (food >= this.getAppetite() && hungary()) {
-            System.out.printf("%s съел %d \n", this.name, this.appetite);
+            System.out.printf("%s съел %d ++++++\n", this.name, this.appetite);
             switchHungary = 1;
             return true;
         }
         else if (!hungary()) {
-            System.out.printf("%s сытый, не съел %d \n", this.name, this.appetite);
+            System.out.printf("%s сытый, не съел %d ------\n", this.name, this.appetite);
+            System.out.println("--------------");
             return false;
         }
         else {
-            System.out.printf("%s не съел %d \n", this.name, this.appetite);
+            System.out.printf("%s не съел %d ------\n", this.name, this.appetite);
             return false;
         }
     }

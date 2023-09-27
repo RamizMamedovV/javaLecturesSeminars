@@ -11,7 +11,7 @@ public class Main {
                 catFull,
                 new Cat("cat3", 35),
         };
-        Plate plate = new Plate(74);
+        Plate plate = new Plate(77);
 
         for (Cat cat : cats) {
             plate.info();
@@ -22,6 +22,7 @@ public class Main {
                 System.out.println("Убедитесь, что достаточно корма");
                 System.out.println("или сводите погулять" +
                         ", в туалет [example: void goToilet()]");
+                System.out.println("********************");
                 cat.goToilet();
                 System.out.printf("%s сходил в туалет\n",cat.getName());
             }
