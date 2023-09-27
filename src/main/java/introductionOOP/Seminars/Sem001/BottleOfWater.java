@@ -1,4 +1,4 @@
-package OOP_Seminar_1;
+package introductionOOP.Seminars.Sem001;
 
 public class BottleOfWater extends Product {
     private int volume;

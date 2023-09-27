@@ -1,8 +1,8 @@
-package OOP_Seminar_1;
+package introductionOOP.Seminars.Sem001;
 
-import OOP_Seminar_1.BottleOfMilk;
-import OOP_Seminar_1.Chocolate;
-import OOP_Seminar_1.Product;
+import introductionOOP.Seminars.Sem001.BottleOfMilk;
+import introductionOOP.Seminars.Sem001.Chocolate;
+import introductionOOP.Seminars.Sem001.Product;
 
 import java.util.List;
 
