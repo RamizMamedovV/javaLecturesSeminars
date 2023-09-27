@@ -24,16 +24,23 @@ public class Human extends BaseHuman implements Runner{
         return maxJump;
     }
 
+//    @Override
+//    public boolean jump(int height) {
+//        if (getMaxJump() >= height) {
+//            System.out.printf("%s прыгнул на высоту %d +\n", name, height);
+//            return true;
+//        } else {
+//            System.out.printf("%s не смог прыгнуть на высоту %d \n", name, height);
+//            System.out.println("--------------");
+//            return false;
+//        }
+//    }
+
     @Override
     public boolean jump(int height) {
-        if (getMaxJump() >= height) {
-            System.out.printf("%s прыгнул на высоту %d +\n", name, height);
-            return true;
-        } else {
-            System.out.printf("%s не смог прыгнуть на высоту %d \n", name, height);
-            System.out.println("--------------");
-            return false;
-        }
+        return ((getMaxJump() >= height) ?
+                    System.out.printf("%s прыгнул на высоту %d +\n", name, height):
+                    System.out.printf("%s не смог прыгнуть на высоту %d \n", name, height)).checkError();
     }
 
     @Override
