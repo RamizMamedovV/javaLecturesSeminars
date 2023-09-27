@@ -11,7 +11,7 @@ public class Plate {
     }
 
     public void setFood(int food) {
-        this.food -= food;
+        this.food = food;
     }
 
     public void info() {
