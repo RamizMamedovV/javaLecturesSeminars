@@ -9,7 +9,8 @@ public class Sort {
         createArray(array, 0, 10);
         printArray(array);
         //bubbleSort(array);
-        selectedSort(array);
+        //selectedSort(array);
+        insertSort(array);
         printArray(array);
 
     }
@@ -28,6 +29,9 @@ public class Sort {
         System.out.println();
     }
 
+    /**
+     * bubbleSort сложность O(n^2)
+     */
     public static void bubbleSort(int[] arr) {
         boolean fin;
         do {
@@ -43,6 +47,9 @@ public class Sort {
         } while (!fin);
     }
 
+    /**
+     * selectedSort сложность O(n^2)
+     */
     public static void selectedSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
@@ -55,6 +62,21 @@ public class Sort {
                 int temp = arr[i];
                 arr[i] = arr[minIndex];
                 arr[minIndex] = temp;
+            }
+        }
+    }
+
+    /**
+     * insertSort сложность O(n^2)
+     */
+    public static void insertSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
             }
         }
     }
