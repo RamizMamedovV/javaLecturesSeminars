@@ -3,7 +3,7 @@ package algorithmsAndStructures.algorithms.lectures.lec002;
 public class SearchAlgorithms {
     public static void main(String[] args) {
         int[] array = new int[10];
-        Sort.createArray(array, 0, 10);
+        Sort.fillArray(array, 0, 10);
         Sort.printArray(array);
         System.out.println(findValue(array, 5));
         Sort.selectedSort(array);
@@ -26,6 +26,7 @@ public class SearchAlgorithms {
 
     private static int binarySearch(int[] arr, int val, int start, int end) {
         int middle;
+
         if(start > end) return  -1;
         else middle = (start + end) / 2;
 

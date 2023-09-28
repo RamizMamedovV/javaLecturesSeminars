@@ -6,7 +6,7 @@ public class Sort {
     public static void main(String[] args) {
 
         int[] array = new int[10];
-        createArray(array, 0, 10);
+        fillArray(array, 0, 10);
         printArray(array);
         //bubbleSort(array);
         //selectedSort(array);
@@ -15,7 +15,7 @@ public class Sort {
 
     }
 
-    public static void createArray(int[] arr, int min, int max) {
+    public static void fillArray(int[] arr, int min, int max) {
         Random rnd = new Random();
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rnd.nextInt(min, max);
