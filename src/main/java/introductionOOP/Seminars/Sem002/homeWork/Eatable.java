@@ -1,4 +1,4 @@
-package OOP_Seminar_2_Homework;
+package introductionOOP.Seminars.Sem002.homeWork;
 
 public interface Eatable {
 
