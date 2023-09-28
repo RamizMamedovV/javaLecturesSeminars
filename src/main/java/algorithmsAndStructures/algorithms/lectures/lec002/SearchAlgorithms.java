@@ -1,6 +1,6 @@
 package algorithmsAndStructures.algorithms.lectures.lec002;
 
-public class SearchAlgorithm {
+public class SearchAlgorithms {
     public static void main(String[] args) {
         int[] array = new int[10];
         Sort.createArray(array, 0, 10);
