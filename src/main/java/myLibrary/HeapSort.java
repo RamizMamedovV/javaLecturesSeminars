@@ -1,7 +1,5 @@
-package sem2_homework;
+package myLibrary;
 
-import myLibrary.Create_Int_Array;
-import myLibrary.Print_IntArray;
 
 public class HeapSort {
     public static void main(String[] args) {
