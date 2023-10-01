@@ -11,4 +11,9 @@ public abstract class Ingredients {
     public String toString() {
         return "Ingredients " + name;
     }
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        return this.getClass().equals(((Ingredients) obj).getClass());
+//    }
 }

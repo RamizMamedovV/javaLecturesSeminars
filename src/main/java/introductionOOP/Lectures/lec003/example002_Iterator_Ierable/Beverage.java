@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public abstract class Beverage implements Iterator<Ingredients> {
 
     List<Ingredients> componentsList;
@@ -16,11 +17,13 @@ public abstract class Beverage implements Iterator<Ingredients> {
     }
 
     public void addIngredients(Ingredients ingredient) {
-        componentsList.add(ingredient);
+        if (!componentsList.contains(ingredient))
+            componentsList.add(ingredient);
     }
-/**
- * for Iterator
- */
+
+    /**
+     * for Iterator
+     */
     @Override
     public boolean hasNext() {
         return index < componentsList.size();
