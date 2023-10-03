@@ -8,7 +8,6 @@ public class GetStringRandomNameSurname {
         Random rnd = new Random();
         String[] str;
         int i = rnd.nextInt(10);
-        System.out.println(i);
         if (i % 2 == 0) {
             str = CreateArrayMenFemaleFirstLastNames.getMenFirstLastNames(1);
         } else {
