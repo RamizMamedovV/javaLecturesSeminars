@@ -22,6 +22,11 @@ public class Freelancer extends Employee {
         this.perHour = perHour;
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
     public Freelancer(String surname, String name, int age, double perHour) {
         super(surname, name, age);
         this.perHour = perHour;

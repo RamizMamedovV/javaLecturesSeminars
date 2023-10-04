@@ -7,7 +7,9 @@ public class Main {
 
         Employee[] employees = CreateEmployees.getEmployees(15);
 
-        Arrays.sort(employees, new SalaryComparator());
+        // Arrays.sort(employees, new IdComparator(SortType.Descending));
+        // Arrays.sort(employees, new AgeComparator(SortType.Descending));
+        Arrays.sort(employees, new SalaryComparator(SortType.Ascending));
         //Arrays.sort(employees);
         for (Employee employee : employees) {
             System.out.println(employee);

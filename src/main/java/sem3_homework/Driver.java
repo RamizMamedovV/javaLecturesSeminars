@@ -28,6 +28,10 @@ public class Driver extends Employee{
         return drivingExperience;
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
 
     // TODO доработать условие: при владении авто в течении года, добавлять 1 год опыта
     private void setDrivingExperience(int drivingExperience) {

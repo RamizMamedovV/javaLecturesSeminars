@@ -4,7 +4,7 @@ public class Worker extends Employee{
     private double salary;
     private static int WorkerId;
 
-    protected int id;
+    private int id;
 
     static {
         WorkerId = 100;
@@ -20,6 +20,11 @@ public class Worker extends Employee{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     public Worker(String surname, String name, int age, double salary) {

@@ -2,7 +2,7 @@ package sem3_homework;
 
 import java.util.Comparator;
 
-public class AgeComparator implements Comparator<Employee> {
+public class IdComparator implements Comparator<Employee> {
 
     private SortType sortType;
 
@@ -14,15 +14,15 @@ public class AgeComparator implements Comparator<Employee> {
         this.sortType = sortType;
     }
 
-    public AgeComparator(SortType sortType) {
+    public IdComparator(SortType sortType) {
         this.sortType = sortType;
     }
 
     @Override
     public int compare(Employee o1, Employee o2) {
         if (sortType == SortType.Ascending)
-            return Integer.compare(o1.age, o2.age);
+            return Integer.compare(o1.getId(), o2.getId());
         else
-            return Integer.compare(o2.age, o1.age);
+            return Integer.compare(o2.getId(), o1.getId());
     }
 }

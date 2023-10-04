@@ -16,6 +16,10 @@ public abstract class Employee implements Comparable<Employee> {
         id = ++EmployeeId;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Employee(String surname, String name, int age) {
         this.surname = surname;
         this.name = name;
