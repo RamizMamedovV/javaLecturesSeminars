@@ -1,6 +1,6 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
 
-public class Driver extends Employee{
+public class Driver extends Employee {
 
     private double salary;
     private int drivingExperience;
