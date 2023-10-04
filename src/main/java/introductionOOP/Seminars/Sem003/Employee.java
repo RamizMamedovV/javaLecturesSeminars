@@ -1,4 +1,4 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
 
 public abstract class Employee implements Comparable<Employee> {
     protected String surname;

@@ -1,8 +1,8 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
 
 import java.util.Comparator;
 
-public class AgeComparator implements Comparator<Employee> {
+public class SalaryComparator implements Comparator<Employee> {
 
     private SortType sortType;
 
@@ -14,15 +14,15 @@ public class AgeComparator implements Comparator<Employee> {
         this.sortType = sortType;
     }
 
-    public AgeComparator(SortType sortType) {
+    public SalaryComparator(SortType sortType) {
         this.sortType = sortType;
     }
 
     @Override
     public int compare(Employee o1, Employee o2) {
         if (sortType == SortType.Ascending)
-            return Integer.compare(o1.age, o2.age);
+            return Double.compare(o1.calculateSalary(), o2.calculateSalary());
         else
-            return Integer.compare(o2.age, o1.age);
+            return Double.compare(o2.calculateSalary(), o1.calculateSalary());
     }
 }

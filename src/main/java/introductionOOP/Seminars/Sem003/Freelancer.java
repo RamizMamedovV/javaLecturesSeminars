@@ -1,4 +1,6 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
+
+import introductionOOP.Seminars.Sem003.Employee;
 
 public class Freelancer extends Employee {
     private double perHour;

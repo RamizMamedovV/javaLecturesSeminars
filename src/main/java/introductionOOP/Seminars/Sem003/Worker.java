@@ -1,6 +1,8 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
 
-public class Worker extends Employee{
+import introductionOOP.Seminars.Sem003.Employee;
+
+public class Worker extends Employee {
     private double salary;
     private static int WorkerId;
 

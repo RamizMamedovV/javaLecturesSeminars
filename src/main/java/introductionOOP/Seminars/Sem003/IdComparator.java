@@ -1,4 +1,4 @@
-package sem3_homework;
+package introductionOOP.Seminars.Sem003;
 
 import java.util.Comparator;
 
