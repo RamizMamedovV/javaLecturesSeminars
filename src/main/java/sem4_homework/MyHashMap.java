@@ -12,6 +12,7 @@ public class MyHashMap<K, V> {
 
     /**
      * Поиск элемента в хеш-таблице по ключу
+     *
      * @param key ключ
      * @return значение
      */
@@ -25,6 +26,7 @@ public class MyHashMap<K, V> {
 
     /**
      * Удаление элемента по ключу
+     *
      * @param key ключ
      * @return значение
      */
@@ -41,12 +43,13 @@ public class MyHashMap<K, V> {
 
     /**
      * Добавление нового элемента в хеш-таблицу
+     *
      * @param key Ключ
      * @param val Значение
      * @return null - если добавлен или Значение, если перезаписан
      */
     public V put(K key, V val) {
-        if (buckets.length * FILL_CONTROLLER <= size )
+        if (buckets.length * FILL_CONTROLLER <= size)
             recalculateBucketLength();
         int index = calculateBucketIndex(key);
         Bucket<K, V> bucket = buckets[index];
@@ -63,6 +66,23 @@ public class MyHashMap<K, V> {
         }
         return temp;
     }
+
+    /**
+     * Распечатка содержимого хеш-таблицы
+     */
+    public void print() {
+        for (Bucket<K, V> bucket : buckets) {
+            if (bucket != null) {
+                Bucket<K, V>.Node node = bucket.head;
+                if (node != null) {
+                    do {
+                        System.out.println("key: " + node.value.key + " value: " + node.value.val + "\n");
+                    } while (node.next != null);
+                }
+            }
+        }
+    }
+
     //endregion
 
     //region methods
@@ -117,7 +137,7 @@ public class MyHashMap<K, V> {
 
     //endregion
 
-    //region Вспомогательный структуры
+    //region Вспомогательные структуры
 
     /**
      * элемент хеш таблицы
@@ -202,24 +222,24 @@ public class MyHashMap<K, V> {
             Node node = head;
             while (node != null) {
                 if (node.value.key.equals(key))
-                    return (V)node.value.val;
+                    return (V) node.value.val;
                 node = node.next;
             }
             return null;
         }
 
-        private V remove(K key){
+        private V remove(K key) {
             if (head == null)
                 return null;
             if (head.value.key.equals(key)) {
                 V temp = (V) head.value.val;
-                head= head.next;
+                head = head.next;
                 return temp;
             }
             Node node = head.next;
             while (node != null) {
-                if(node.value.key.equals(key)) {
-                    V temp = (V)node.value.val;
+                if (node.value.key.equals(key)) {
+                    V temp = (V) node.value.val;
                     node = node.next;
                     return temp;
                 }
