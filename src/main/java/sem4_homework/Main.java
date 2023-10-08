@@ -18,6 +18,6 @@ public class Main {
         System.out.println(my.remove(3));
         System.out.println(my.get(3));
 
-        my.print();
+        System.out.println(my.toString());
     }
 }

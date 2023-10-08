@@ -68,19 +68,23 @@ public class MyHashMap<K, V> {
     }
 
     /**
-     * Распечатка содержимого хеш-таблицы
+     * Override toString
+     * @return String
      */
-    public void print() {
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
         for (Bucket<K, V> bucket : buckets) {
             if (bucket != null) {
                 Bucket<K, V>.Node node = bucket.head;
                 if (node != null) {
                     do {
-                        System.out.println("key: " + node.value.key + " value: " + node.value.val + "\n");
+                        sb.append("key: " + node.value.key + " value: " + node.value.val + "\n");
                     } while (node.next != null);
                 }
             }
         }
+        return sb.toString();
     }
 
     //endregion
