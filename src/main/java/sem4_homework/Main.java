@@ -1,5 +1,12 @@
 package sem4_homework;
-
+/*2. (Дополнительная, необязательная задача) Добавить возможность перебора всех элементов
+нашей структуры данных, необходимо добавить несколько элементов,
+а затем перебрать все элементы структуры HashTable используя цикл foreach.
+Подумайте, возможно вам стоит обратиться к интерфейсу Iterable
+и в рамках имплементации подобного интерфейса создать объект типа Iterator,
+далее, вы реализуете метод next и hasNext,
+наделите способностью нашу структуру HashMap быть перечисляемой.
+ */
 public class Main {
     public static void main(String[] args) {
         MyHashMap<Integer, String> my = new MyHashMap<>(3);
@@ -18,6 +25,6 @@ public class Main {
         System.out.println(my.remove(3));
         System.out.println(my.get(3));
 
-        System.out.println(my.toString());
+        System.out.println(my);
     }
 }
