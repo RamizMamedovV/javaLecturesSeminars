@@ -1,4 +1,4 @@
-package sem4_homework;
+package algorithmsAndStructures.algorithms.seminars.sem004;
 
 /**
  * Хеш-таблица
