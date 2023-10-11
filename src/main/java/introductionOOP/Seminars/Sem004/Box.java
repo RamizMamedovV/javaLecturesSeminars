@@ -1,4 +1,4 @@
-package sem4_homework;
+package introductionOOP.Seminars.Sem004;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,11 @@ public class Box<T extends Fruit> implements Comparable<Box<T>> {
     }
 
     public double getWeight() {
-        return boxArrayList.size() * fruit.getWeight();
+        if (!boxArrayList.isEmpty())
+            return boxArrayList.size() * fruit.getWeight();
+        else {
+            return 0;
+        }
     }
 
 

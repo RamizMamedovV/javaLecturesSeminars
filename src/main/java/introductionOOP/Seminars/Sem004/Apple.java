@@ -1,4 +1,4 @@
-package sem4_homework;
+package introductionOOP.Seminars.Sem004;
 
 public class Apple extends Fruit {
 

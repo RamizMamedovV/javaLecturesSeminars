@@ -1,4 +1,6 @@
-package sem4_homework;
+package introductionOOP.Seminars.Sem004;
+
+import introductionOOP.Seminars.Sem004.Fruit;
 
 public class Orange extends Fruit {
 

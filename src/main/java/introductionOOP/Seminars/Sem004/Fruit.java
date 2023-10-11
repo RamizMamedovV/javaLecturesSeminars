@@ -1,8 +1,8 @@
-package sem4_homework;
+package introductionOOP.Seminars.Sem004;
 
 public abstract class Fruit {
 
-    protected double weight;
+    protected double weight = 0.1;
 
     public Fruit(double weight) {
         this.weight = weight;
