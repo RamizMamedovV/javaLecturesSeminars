@@ -28,6 +28,10 @@ public class Box<T extends Fruit> implements Comparable<Box<T>> {
         }
     }
 
+    public ArrayList<T> getFruits() {
+        return boxArrayList;
+    }
+
     public double getWeight() {
         if (!boxArrayList.isEmpty())
             return boxArrayList.size() * fruit.getWeight();
@@ -46,8 +50,11 @@ public class Box<T extends Fruit> implements Comparable<Box<T>> {
         return Double.compare(this.getWeight(), o.getWeight());
     }
 
+    /*
+    если пересыпать в пустой массив, то выдаёт ошибку - ДОРАБОТАТЬ!!
+     */
     public void sprinkleFruitsTo(Box<T> box) {
-        box.boxArrayList.addAll(this.boxArrayList);
+        box.getFruits().addAll(this.boxArrayList);
         this.boxArrayList = new ArrayList<>();
     }
 
