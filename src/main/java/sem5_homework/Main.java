@@ -12,7 +12,6 @@ public class Main {
     /**
      * TODO: ДОМАШНЯЯ РАБОТА
      *  метод changeReservationTable должен заработать!
-     * @param args
      */
     public static void main(String[] args) {
 
@@ -22,7 +21,7 @@ public class Main {
         presenter.updateUIShowTables();
         bookingView.reservationTable(new Date(), 2, "Станислав");
 
-        //bookingView.changeReservationTable(1001, new Date(), 3, "Станислав");
+        bookingView.changeReservationTable(1001, new Date(), 3, "Станислав");
 
     }
 }

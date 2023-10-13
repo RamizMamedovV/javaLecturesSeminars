@@ -51,7 +51,7 @@ public class BookingView implements View {
      * @param name имя
      */
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-
+        observer.reBookingTable(oldReservation, reservationDate, tableNo, name);
     }
 
 }
