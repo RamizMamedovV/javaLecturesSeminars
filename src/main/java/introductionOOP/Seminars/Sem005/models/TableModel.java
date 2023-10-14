@@ -1,48 +1,67 @@
 package introductionOOP.Seminars.Sem005.models;
 
-import introductionOOP.Seminars.Sem005.presenter.Model;
+import introductionOOP.Seminars.Sem005.presenters.Model;
 
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 public class TableModel implements Model {
 
     private Collection<Table> tables;
 
+
+    /**
+     * Получение списка всех столиков
+     */
     @Override
-    public Collection<Table> ladTables() {
+    public Collection<Table> loadTables() {
+
         if (tables == null) {
             tables = new ArrayList<>();
-            for (int i = 0; i < 5; i++) {
-                tables.add(new Table());
-            }
+
+            tables.add(new Table());
+            tables.add(new Table());
+            tables.add(new Table());
+            tables.add(new Table());
+            tables.add(new Table());
         }
+
         return tables;
     }
 
+    /**
+     * Бронирование столика
+     *
+     * @param reservationDate Дата бронирования
+     * @param name            Имя
+     */
     @Override
-    public int reservationTable(Date date, int tableNo, String name) {
-        for (Table table : tables) {
-            if (table.getId() == tableNo) {
-                Reservation reservation = new Reservation((Data) date, name);
-                table.getReservations().put(reservation.getReservationId(), reservation);
-                return reservation.getReservationId();
+    public int reservationTable(Date reservationDate, int tableNo, String name) {
+        for (Table table : loadTables()) {
+            if (table.getNo() == tableNo) {
+                Reservation reservation = new Reservation(reservationDate, name);
+                table.getReservations().add(reservation);
+                return reservation.getId();
             }
         }
-        throw new RuntimeException("Не корректный номер столика");
+        throw new RuntimeException("Некорректный номер столика.");
     }
 
-    @Override
-    public int deleteReservationTable(int reservationId) {
-        for (Table table : tables) {
-            if(table.getReservations().containsKey(reservationId)) {
-                table.getReservations().remove(reservationId);
-                return 1;
-            }
-        }
+    /**
+     * TODO: Доработать в рамках домашней работы
+     * Отменить бронирование по номеру
+     *
+     * @param oldReservation  номер брони для отмены
+     * @param reservationDate новая дата бронирования
+     * @param tableNo         номер столика для брони
+     * @param name            имя
+     * @return  новый номер брони
+     */
+    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
 
-        return 0;
+        for (Table table : tables) {
+            table.getReservations().removeIf(reservation -> reservation.getId() == oldReservation);
+        }
+        return reservationTable(reservationDate, tableNo, name);
     }
 }
+

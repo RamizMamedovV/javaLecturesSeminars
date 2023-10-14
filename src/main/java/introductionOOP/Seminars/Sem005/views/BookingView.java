@@ -1,8 +1,8 @@
-package sem5_homework.views;
+package introductionOOP.Seminars.Sem005.views;
 
-import sem5_homework.models.Table;
-import sem5_homework.presenters.View;
-import sem5_homework.presenters.ViewObserver;
+import introductionOOP.Seminars.Sem005.models.Table;
+import introductionOOP.Seminars.Sem005.presenters.View;
+import introductionOOP.Seminars.Sem005.presenters.ViewObserver;
 
 import java.util.Collection;
 import java.util.Date;

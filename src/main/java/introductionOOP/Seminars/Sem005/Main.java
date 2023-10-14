@@ -1,19 +1,27 @@
 package introductionOOP.Seminars.Sem005;
 
 import introductionOOP.Seminars.Sem005.models.TableModel;
-import introductionOOP.Seminars.Sem005.presenter.BookingPresenter;
-import introductionOOP.Seminars.Sem005.presenter.Model;
-import introductionOOP.Seminars.Sem005.presenter.View;
-import introductionOOP.Seminars.Sem005.view.BookingView;
+import introductionOOP.Seminars.Sem005.presenters.BookingPresenter;
+import introductionOOP.Seminars.Sem005.presenters.Model;
+import introductionOOP.Seminars.Sem005.presenters.View;
+import introductionOOP.Seminars.Sem005.views.BookingView;
+
+import java.util.Date;
 
 public class Main {
+    /**
+     * TODO: ДОМАШНЯЯ РАБОТА
+     *  метод changeReservationTable должен заработать!
+     */
     public static void main(String[] args) {
 
         Model tableModel = new TableModel();
         View bookingView = new BookingView();
-        BookingPresenter booking = new BookingPresenter(bookingView, tableModel);
+        BookingPresenter presenter = new BookingPresenter(tableModel, bookingView);
+        presenter.updateUIShowTables();
+        bookingView.reservationTable(new Date(), 2, "Станислав");
 
-        booking.updateUIShowTables();
+        bookingView.changeReservationTable(1001, new Date(), 3, "Станислав");
 
     }
 }

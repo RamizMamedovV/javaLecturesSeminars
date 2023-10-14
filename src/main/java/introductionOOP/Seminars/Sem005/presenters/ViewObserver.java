@@ -1,4 +1,4 @@
-package sem5_homework.presenters;
+package introductionOOP.Seminars.Sem005.presenters;
 
 import java.util.Date;
 public interface ViewObserver {

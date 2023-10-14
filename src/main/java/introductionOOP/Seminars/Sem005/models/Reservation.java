@@ -1,33 +1,28 @@
 package introductionOOP.Seminars.Sem005.models;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class Reservation {
 
-    private static int staticReservation = 1_000;
+    private static int counter = 1000;
 
-    private final Data data;
-    private final String name;
-    private final int reservationId;
+    private final int id;
+
+    public int getId() {
+        return id;
+    }
+
+    private Date date;
+
+    private String name;
 
     {
-        reservationId = ++staticReservation;
+        id = ++counter;
     }
 
-    public int getReservationId() {
-        return reservationId;
-    }
-
-    public Data getData() {
-        return data;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Reservation(Data data, String name) {
-        this.data = data;
+    public Reservation(Date date, String name) {
+        this.date = date;
         this.name = name;
     }
+
 }

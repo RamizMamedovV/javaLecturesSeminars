@@ -1,6 +1,6 @@
-package sem5_homework.presenters;
+package introductionOOP.Seminars.Sem005.presenters;
 
-import sem5_homework.models.Table;
+import introductionOOP.Seminars.Sem005.models.Table;
 
 import java.util.Collection;
 import java.util.Date;
