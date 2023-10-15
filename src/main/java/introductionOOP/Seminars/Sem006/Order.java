@@ -1,4 +1,4 @@
-package sem6_homework;
+package introductionOOP.Seminars.Sem006;
 
 import java.util.Scanner;
 
