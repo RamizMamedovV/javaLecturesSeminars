@@ -19,9 +19,9 @@ public class Company {
         this.jobAgency = jobAgency;
     }
 
-    public void needEmployee(){
+    public void needEmployee(VacancyType vacancyType){
         int salary = random.nextInt(maxSalary);
-        Vacancy vacancy = new Vacancy(name, salary);
+        Vacancy vacancy = new Vacancy(name, salary, vacancyType);
         jobAgency.sendOffer(vacancy);
     }
 }

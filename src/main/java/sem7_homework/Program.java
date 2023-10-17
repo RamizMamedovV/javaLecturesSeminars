@@ -3,10 +3,12 @@ package sem7_homework;
 public class Program {
 
     /**
-     *  TODO: Доработать приложение, которое разрабатывалось на семинаре, поработать с шаблоном проектирования Observer,
+     *  TODO: Доработать приложение, которое разрабатывалось на семинаре,
+     *  поработать с шаблоном проектирования Observer,
      *  добавить новый тип соискателя.
      *  Добавить новую сущность "Вакансия", компания должна рассылать вакансии.
-     *  Только после этого вы можете усложнить ваше приложение (при желании), например, добавить тип вакансии (enum),
+     *  Только после этого вы можете усложнить ваше приложение (при желании),
+     *  например, добавить тип вакансии (enum),
      *  учитывать тип вакансии при отправке предложения соискателю.
      * @param args args
      */
@@ -17,10 +19,10 @@ public class Program {
         Company yandex = new Company("Yandex", jobAgency, 95000);
         Company geekBrains = new Company("GeekBrains", jobAgency, 98000);
 
-        Student student1 = new Student("Студент #1");
-        Master master1 = new Master("Мастер #1");
-        Master master2 = new Master("Мастер #2");
-        Programmer programmer = new Programmer("Программист #1");
+        Student student1 = new Student("Студент #1", VacancyType.freelancer);
+        Master master1 = new Master("Мастер #1", VacancyType.Programmer);
+        Master master2 = new Master("Мастер #2", VacancyType.cleaner);
+        Programmer programmer = new Programmer("Программист #1", VacancyType.Programmer);
 
         jobAgency.registerObserver(student1);
         jobAgency.registerObserver(master1);
@@ -28,9 +30,9 @@ public class Program {
         jobAgency.registerObserver(programmer);
 
         for (int i = 0; i < 2; i++){
-            google.needEmployee();
-            yandex.needEmployee();
-            geekBrains.needEmployee();
+            google.needEmployee(VacancyType.cleaner);
+            yandex.needEmployee(VacancyType.freelancer);
+            geekBrains.needEmployee(VacancyType.Programmer);
             System.out.println("-------------------------");
         }
 

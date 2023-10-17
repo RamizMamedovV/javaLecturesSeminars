@@ -6,7 +6,18 @@ public class Vacancy {
 
     private int salary;
 
+    private VacancyType vacancyType;
+
     //region getter setter
+
+
+    public VacancyType getVacancyType() {
+        return vacancyType;
+    }
+
+    public void setVacancyType(VacancyType vacancyType) {
+        this.vacancyType = vacancyType;
+    }
 
     public String getCompanyName() {
         return companyName;
@@ -27,8 +38,9 @@ public class Vacancy {
     //endregion
 
 
-    public Vacancy(String companyName, int salary) {
+    public Vacancy(String companyName, int salary, VacancyType vacancyType) {
         this.companyName = companyName;
         this.salary = salary;
+        this.vacancyType = vacancyType;
     }
 }
