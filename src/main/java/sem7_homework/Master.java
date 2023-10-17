@@ -10,15 +10,17 @@ public class Master implements Observer{
     }
 
     @Override
-    public void receiveOffer(String nameCompany, int salary) {
-        if (this.salary <= salary){
-            System.out.printf("Специалист %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
-            this.salary = salary;
+    public void receiveOffer(Vacancy vacancy) {
+        if (this.salary <= vacancy.getSalary()){
+            System.out.printf("Специалист %s: Мне нужна эта работа!" +
+                            "(компания: %s; заработная плата: %d)\n",
+                    name, vacancy.getCompanyName(), salary);
+            this.salary = vacancy.getSalary();
         }
         else {
-            System.out.printf("Специалист %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
+            System.out.printf("Специалист %s: Я найду работу получше!" +
+                            "(компания: %s; заработная плата: %d)\n",
+                    name, vacancy.getCompanyName(), salary);
         }
     }
 }

@@ -21,6 +21,7 @@ public class Company {
 
     public void needEmployee(){
         int salary = random.nextInt(maxSalary);
-        jobAgency.sendOffer(name, salary);
+        Vacancy vacancy = new Vacancy(name, salary);
+        jobAgency.sendOffer(vacancy);
     }
 }
