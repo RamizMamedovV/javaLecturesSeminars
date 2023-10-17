@@ -1,2 +1,6 @@
-порождающие: builder, singleton and factory
-pattern: adapter
+
+порождающие паттерны:   builder, singleton and factory
+
+структурный pattern:    adapter
+
+поведенческий:          Observer
