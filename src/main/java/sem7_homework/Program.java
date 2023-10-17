@@ -8,7 +8,7 @@ public class Program {
      *  Добавить новую сущность "Вакансия", компания должна рассылать вакансии.
      *  Только после этого вы можете усложнить ваше приложение (при желании), например, добавить тип вакансии (enum),
      *  учитывать тип вакансии при отправке предложения соискателю.
-     * @param args
+     * @param args args
      */
     public static void main(String[] args) {
 
@@ -20,15 +20,18 @@ public class Program {
         Student student1 = new Student("Студент #1");
         Master master1 = new Master("Мастер #1");
         Master master2 = new Master("Мастер #2");
+        Programmer programmer = new Programmer("Программист #1");
 
         jobAgency.registerObserver(student1);
         jobAgency.registerObserver(master1);
         jobAgency.registerObserver(master2);
+        jobAgency.registerObserver(programmer);
 
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 2; i++){
             google.needEmployee();
             yandex.needEmployee();
             geekBrains.needEmployee();
+            System.out.println("-------------------------");
         }
 
     }
