@@ -17,6 +17,10 @@ public class Creator {
             companies.add(new Company(EnumCompany.values()[num].toString()
                     , rnd.nextDouble(80_000, 100_000)));
         }
+        System.out.println();
+        for (Company com : companies) {
+            com.publisher.publish();
+        }
     }
 
 
@@ -26,6 +30,11 @@ public class Creator {
             workers.add(new Worker(String.format("name %d", i)
                     ,EnumWorker.values()[num].toString()
                     , rnd.nextDouble(80_000, 100_000)));
+        }
+
+        System.out.println();
+        for (Worker com : workers) {
+            com.applicant.respondApplicant();
         }
     }
 

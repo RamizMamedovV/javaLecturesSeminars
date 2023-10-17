@@ -5,6 +5,7 @@ public class Main {
         Creator creatorCompany = new Creator();
         creatorCompany.createCompany(3);
         creatorCompany.printCompanies();
+        System.out.println();
 
         creatorCompany.createWorker(3);
         creatorCompany.printWorkers();

@@ -2,6 +2,8 @@ package exampleSem7;
 
 public class Company {
 
+    Publisher publisher = new JobAgency();
+
     String name;
     double salary;
 
