@@ -40,6 +40,11 @@ public class Employee {
         this.occupations = occupations;
     }
 
+    public void getOffer(Company.Vacancy vacancy) {
+
+        System.out.println(this.getName() + " got");
+    }
+
     @Override
     public String toString() {
         return String.format(" name: %s, occupation: %s\n "

@@ -21,9 +21,10 @@ public class JobAgency implements Publisher{
         observes.remove(employee);
     }
 
-    public void sendOffer(Vacancy vacancy) {
+    public void sendOffer(Company.Vacancy vacancy) {
+        System.out.println("JobAgency got");
         for (Employee employee : observes) {
-            //employee.getOffer(vacancy);
+            employee.getOffer(vacancy);
         }
     }
 

@@ -6,16 +6,17 @@ public class Company {
     //region field
 
     Map<Integer,Employee> employeeCollection;
-    private Random rnd = new Random();
+    private final Random rnd = new Random();
 
-
-    private String name;
+    private final String name;
 
     private double salary;
 
     private Occupations occupations;
 
     private Employee employee;
+
+    private Publisher publisher;
 
     //endregion
 
@@ -44,9 +45,23 @@ public class Company {
         }
     }
 
+    private double setSalary(Occupations occupations) {
+        if (occupations == Occupations.cleaner
+            || occupations == Occupations.driver
+            || occupations  == Occupations.loader) {
+            return rnd.nextDouble(50_000, 80_000);
+        } else if (occupations  == Occupations.doctor
+                    || occupations  == Occupations.programmer) {
+            return rnd.nextDouble(80_000, 120_000);
+        } else {
+            return 0;
+        }
+    }
+
     //endregion
-    public Company(String name) {
+    public Company(String name, Publisher publisher) {
         this.name = name;
+        this.publisher = publisher;
         employeeCollection = new HashMap<>();
     }
 
@@ -59,8 +74,29 @@ public class Company {
         employeeCollection.remove(employee.getId(), employee);
     }
 
+    public void sendOffer(Occupations occupations) {
+        System.out.println("Company sent");
+        Vacancy vacancy = new Company.Vacancy(this.name, this.setSalary(occupations), occupations);
+
+        publisher.sendOffer(vacancy);
+    }
+
     @Override
     public String toString() {
         return "" + employeeCollection;
+    }
+
+    class Vacancy {
+        String companyName;
+
+        double offerSalary;
+
+        Occupations occupations;
+
+        public Vacancy(String companyName, double offerSalary, Occupations occupations) {
+            this.companyName = companyName;
+            this.offerSalary = offerSalary;
+            this.occupations = occupations;
+        }
     }
 }
