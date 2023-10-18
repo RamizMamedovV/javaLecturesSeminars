@@ -1,6 +1,6 @@
 package sem7_homework;
 
-public class Vacancy {
+public class Vacancy implements Document{
 
     private String companyName;
 
@@ -19,6 +19,7 @@ public class Vacancy {
         this.vacancyType = vacancyType;
     }
 
+    @Override
     public String getCompanyName() {
         return companyName;
     }
@@ -27,6 +28,7 @@ public class Vacancy {
         this.companyName = companyName;
     }
 
+    @Override
     public int getSalary() {
         return salary;
     }
@@ -37,6 +39,9 @@ public class Vacancy {
 
     //endregion
 
+
+    public Vacancy() {
+    }
 
     public Vacancy(String companyName, int salary, VacancyType vacancyType) {
         this.companyName = companyName;

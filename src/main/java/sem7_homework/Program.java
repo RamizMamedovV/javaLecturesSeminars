@@ -19,6 +19,8 @@ public class Program {
         Company yandex = new Company("Yandex", jobAgency, 95000);
         Company geekBrains = new Company("GeekBrains", jobAgency, 98000);
 
+        Vacancy vacancy = new Vacancy("google", 120_000, VacancyType.Programmer);
+
         Student student1 = new Student("Студент #1", VacancyType.freelancer);
         Master master1 = new Master("Мастер #1", VacancyType.Programmer);
         Master master2 = new Master("Мастер #2", VacancyType.cleaner);
@@ -30,9 +32,9 @@ public class Program {
         jobAgency.registerObserver(programmer);
 
         for (int i = 0; i < 2; i++){
-            google.needEmployee(VacancyType.cleaner);
-            yandex.needEmployee(VacancyType.freelancer);
-            geekBrains.needEmployee(VacancyType.Programmer);
+            google.needEmployee(vacancy);
+            yandex.needEmployee(vacancy);
+            geekBrains.needEmployee(vacancy);
             System.out.println("-------------------------");
         }
 

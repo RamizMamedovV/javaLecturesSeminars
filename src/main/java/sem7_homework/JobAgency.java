@@ -8,7 +8,7 @@ public class JobAgency implements Publisher {
     List<Observer> observers = new ArrayList<>();
 
     @Override
-    public void sendOffer(Vacancy vacancy) {
+    public void sendOffer(Document vacancy) {
         for (Observer observer : observers){
             observer.receiveOffer(vacancy);
         }

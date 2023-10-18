@@ -13,7 +13,7 @@ public class Programmer implements Observer{
     }
 
     @Override
-    public void receiveOffer(Vacancy vacancy) {
+    public void receiveOffer(Document vacancy) {
         if (this.salary <= vacancy.getSalary() && vacancyType == vacancy.getVacancyType()){
             System.out.printf("Программист %s: Мне нужна эта работа!" +
                             "(компания: %s; заработная плата: %d " +

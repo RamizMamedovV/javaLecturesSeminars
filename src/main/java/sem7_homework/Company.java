@@ -12,6 +12,8 @@ public class Company {
 
     private Publisher jobAgency;
 
+    private Document vacancy;
+
 
     public Company(String name, Publisher jobAgency, int maxSalary) {
         this.name = name;
@@ -19,9 +21,12 @@ public class Company {
         this.jobAgency = jobAgency;
     }
 
-    public void needEmployee(VacancyType vacancyType){
-        int salary = random.nextInt(maxSalary);
-        Vacancy vacancy = new Vacancy(name, salary, vacancyType);
+    public void needEmployee(Document vacancy){
+        //int salary = random.nextInt(maxSalary);
+//        vacancy.setCompanyName(name);
+//        vacancy.setSalary(random.nextInt(maxSalary));
+//        vacancy.setVacancyType(vacancyType);
+        //Vacancy vacancy = new Vacancy(name, salary, vacancyType);
         jobAgency.sendOffer(vacancy);
     }
 }
