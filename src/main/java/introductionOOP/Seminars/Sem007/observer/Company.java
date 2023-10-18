@@ -51,12 +51,12 @@ public class Company {
     }
 
     public void hireEmployee(Employee employee) {
-        setSalary(this.employee = employee);
-        employeeCollection.put(this.employee.getId(), this.employee);
+        setSalary(employee);
+        employeeCollection.put(employee.getId(), employee);
     }
 
     public void fireEmployee(Employee employee) {
-        employeeCollection.remove(this.employee.getId(), this.employee);
+        employeeCollection.remove(employee.getId(), employee);
     }
 
     @Override
