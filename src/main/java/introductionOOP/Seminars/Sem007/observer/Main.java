@@ -6,7 +6,7 @@ public class Main {
         JobAgency publisher = new JobAgency();
         Company company = new Company("Google", publisher);
         Employee employee1 = new Employee("employee1"
-                , Occupations.programmer, 80_000, publisher);
+                , Occupations.programmer, 120_000, publisher);
         Employee employee2 = new Employee("employee2"
                 , Occupations.driver, 50_000, publisher);
 

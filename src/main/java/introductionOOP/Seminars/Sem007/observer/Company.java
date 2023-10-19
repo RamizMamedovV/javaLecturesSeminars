@@ -71,7 +71,8 @@ public class Company implements CompanyResponse{
     public void hireEmployee(Employee employee, Document vacancy) {
         //setSalary(employee);
         System.out.println("hireEmployee got");
-        employeeCollection.put(employee.getId(), employee);
+        if (employee != null)
+            employeeCollection.put(employee.getId(), employee);
     }
 
     public void fireEmployee(Employee employee) {
