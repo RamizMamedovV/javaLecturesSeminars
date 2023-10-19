@@ -2,5 +2,6 @@ package introductionOOP.Seminars.Sem007.observer;
 
 public interface Publisher {
 
-    void sendOffer(Company.Vacancy vacancy);
+    Employee sendOffer(Document vacancy);
+    void getResponse(boolean isAcceptable, Employee employee, Document vacancy);
 }

@@ -9,6 +9,8 @@ public class JobAgency implements Publisher{
 
     List<Employee> observes;
 
+    CompanyResponse companyResponse;
+
     public JobAgency() {
         observes = new ArrayList<>();
     }
@@ -21,10 +23,22 @@ public class JobAgency implements Publisher{
         observes.remove(employee);
     }
 
-    public void sendOffer(Company.Vacancy vacancy) {
+    public Employee sendOffer(Document vacancy) {
         System.out.println("JobAgency got");
         for (Employee employee : observes) {
-            employee.getOffer(vacancy);
+            System.out.println(employee);   //debug
+            System.out.println();
+            return employee.getOffer(vacancy);
+        }
+        return null;
+    }
+
+    @Override
+    public void getResponse(boolean isAcceptable, Employee employee, Document vacancy) {
+        if (isAcceptable) {
+            System.out.println("getResponse got");  //debug
+            observes.remove(employee);
+            companyResponse.gotResponse(true, employee, vacancy);
         }
     }
 

@@ -2,13 +2,13 @@ package introductionOOP.Seminars.Sem007.observer;
 
 import java.util.*;
 
-public class Company {
+public class Company implements CompanyResponse{
     //region field
 
     Map<Integer,Employee> employeeCollection;
     private final Random rnd = new Random();
 
-    private final String name;
+    private String name;
 
     private double salary;
 
@@ -59,14 +59,18 @@ public class Company {
     }
 
     //endregion
+
+
+
     public Company(String name, Publisher publisher) {
         this.name = name;
         this.publisher = publisher;
         employeeCollection = new HashMap<>();
     }
 
-    public void hireEmployee(Employee employee) {
-        setSalary(employee);
+    public void hireEmployee(Employee employee, Document vacancy) {
+        //setSalary(employee);
+        System.out.println("hireEmployee got");
         employeeCollection.put(employee.getId(), employee);
     }
 
@@ -76,9 +80,11 @@ public class Company {
 
     public void sendOffer(Occupations occupations) {
         System.out.println("Company sent");
-        Vacancy vacancy = new Company.Vacancy(this.name, this.setSalary(occupations), occupations);
+        Vacancy vacancy = new Vacancy(this.name, this.setSalary(occupations), occupations);
+        System.out.println(vacancy);        //debug
+        System.out.println();
+        hireEmployee (publisher.sendOffer(vacancy), vacancy);
 
-        publisher.sendOffer(vacancy);
     }
 
     @Override
@@ -86,17 +92,22 @@ public class Company {
         return "" + employeeCollection;
     }
 
-    class Vacancy {
-        String companyName;
-
-        double offerSalary;
-
-        Occupations occupations;
-
-        public Vacancy(String companyName, double offerSalary, Occupations occupations) {
-            this.companyName = companyName;
-            this.offerSalary = offerSalary;
-            this.occupations = occupations;
-        }
+    @Override
+    public void gotResponse(boolean isAcceptable, Employee employee, Document vacancy) {
+        if (isAcceptable) hireEmployee(employee, vacancy);
     }
+
+//    class Vacancy {
+//        String companyName;
+//
+//        double offerSalary;
+//
+//        Occupations occupations;
+//
+//        public Vacancy(String companyName, double offerSalary, Occupations occupations) {
+//            this.companyName = companyName;
+//            this.offerSalary = offerSalary;
+//            this.occupations = occupations;
+//        }
+//    }
 }
