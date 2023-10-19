@@ -1,4 +1,4 @@
-package sem7_homework;
+package introductionOOP.Seminars.Sem007.observer.sem7_homework_observerV2;
 
 import java.util.ArrayList;
 import java.util.List;

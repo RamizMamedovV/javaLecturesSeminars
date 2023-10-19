@@ -1,7 +1,5 @@
 package introductionOOP.Seminars.Sem007.observer;
 
-import sem7_homework.Vacancy;
-
 import java.util.ArrayList;
 import java.util.List;
 

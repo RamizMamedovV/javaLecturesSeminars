@@ -1,13 +1,14 @@
-package sem7_homework;
+package introductionOOP.Seminars.Sem007.observer.sem7_homework_observerV2;
 
-public class Programmer implements Observer{
+public class Student  implements Observer{
 
     private VacancyType vacancyType;
 
     private String name;
-    private int salary = 100_000;
+    private int salary = 2000;
 
-    public Programmer(String name, VacancyType vacancyType) {
+
+    public Student(String name, VacancyType vacancyType) {
         this.name = name;
         this.vacancyType = vacancyType;
     }
@@ -15,17 +16,19 @@ public class Programmer implements Observer{
     @Override
     public void receiveOffer(Document vacancy) {
         if (this.salary <= vacancy.getSalary() && vacancyType == vacancy.getVacancyType()){
-            System.out.printf("Программист %s: Мне нужна эта работа!" +
+            System.out.printf("Студент %s: Мне нужна эта работа!" +
                             "(компания: %s; заработная плата: %d " +
                             "vacancy: %s)\n",
                     name, vacancy.getCompanyName(), salary, vacancyType);
             this.salary = vacancy.getSalary();
         }
         else {
-            System.out.printf("Программист %s: Я найду работу получше!" +
+            System.out.printf("Студент %s: Я найду работу получше!" +
                             "(компания: %s; заработная плата: %d " +
                             "vacancy: %s)\n",
                     name, vacancy.getCompanyName(), salary, vacancyType);
         }
     }
+
+
 }
