@@ -1,4 +1,4 @@
-package exceptions.Sem003;
+package exceptions.Sem003.task_1_2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
