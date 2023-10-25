@@ -1,5 +1,6 @@
 package exceptions.Sem003;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class Main {
         }
 
         try {
-                fileNotFoundTask("asdf");
+                fileNotFoundTask("file.txt");
             } catch (Task2_MyFileNotFoundException e) {
                 System.out.println( e.getMessage());
         }
@@ -44,8 +45,11 @@ public class Main {
      * @throws Task2_MyFileNotFoundException собственное исключение
      */
     public static void fileNotFoundTask(String fileName) throws Task2_MyFileNotFoundException {
-        try (FileReader fileReader = new FileReader(fileName)){
-            System.out.println(fileReader.read());
+        try (FileReader fileReader = new FileReader(fileName)
+             ; BufferedReader bufferedReader = new BufferedReader(fileReader)){
+            String line;
+            while ((line = bufferedReader.readLine())!= null)
+                System.out.println(line);
         } catch (FileNotFoundException e) {
             throw new Task2_MyFileNotFoundException(String.format("the file %s was not found", fileName));
         } catch (IOException e) {
