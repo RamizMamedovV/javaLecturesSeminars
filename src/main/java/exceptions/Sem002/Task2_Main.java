@@ -1,7 +1,6 @@
 package exceptions.Sem002;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Random;
 
 public class Task2_Main {
