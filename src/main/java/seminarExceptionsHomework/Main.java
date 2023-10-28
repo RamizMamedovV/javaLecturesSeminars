@@ -1,39 +1,48 @@
 package seminarExceptionsHomework;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
 
-        String str = "Введите в одну строку в соответствии форматам:\n" +
-                " Фамилия Имя Отчество(разделённые пробелами строки),\n" +
-                " дата рождения(формата дд.мм.гггг)\n" +
-                " номер телефона(формата 89991234567)\n" +
-                " пол(символ латиницей f или m)\nВвод: ";
+        String str = """
+                Введите в одну строку в соответствии форматам:
+                Фамилия Имя Отчество(разделённые пробелами строки),
+                дата рождения(формата дд.мм.гггг)
+                номер телефона(формата 89991234567)
+                пол(символ латиницей f или m)
+                Ввод:\s""";
         String[] user = userInput(str);
-        System.out.print("Вы ввели:\n");
-        for (String s : user) {
-            System.out.println(s);
-        }
-        try {
-            checkLength(user);
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
+        String[] fio = null;
+        long phoneNumber = 0;
+        String date = null;
+        String gender = null;
+        String lastName = null;
 
         try {
-            checkPhoneNumber(user);
-            checkDate(user);
-            checkGender(user);
+            checkLength(user);
+            phoneNumber = checkPhoneNumber(user);
+            date = checkDate(user);
+            gender = checkGender(user);
+            fio = checkString(user);
+            lastName = fio[0];
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        String[] fio = checkString(user);
-        for (String s : fio) {
-            System.out.print(" " + s);
+//Magov Mag Magich 11.11.1234 89991234567 m
+        try (FileWriter writer = new FileWriter(lastName)) {
+            writer.write(String.format("<%s>",fio[0]));
+            writer.write(String.format("<%s>",fio[1]));
+            writer.write(String.format("<%s>",fio[2]));
+            writer.write(String.format("<%s>",date));
+            writer.write(String.format("<%d>",phoneNumber));
+            writer.write(String.format("<%s>",gender));
+        } catch (NullPointerException | IOException e) {
+            System.out.println("nnnn");
         }
 
     }
@@ -70,25 +79,28 @@ public class Main {
                             "Вы ввели: %d", str.length)
                     , str.length);
     }
-    //endregion me me
+    //endregion
 
     //region checkPhoneNumber method
-    public static void checkPhoneNumber(String[] str) throws Exception {
+    public static long checkPhoneNumber(String[] str) throws Exception {
+        long phoneNumber = 0;
         boolean hasInteger = false;
 
         for (String enter : str) {
             if (isInteger(enter)) {
+                phoneNumber = Long.parseLong(enter);
                 hasInteger = true;
             }
         }
         if (!hasInteger)
-            throw new Exception("do not have number");
+            throw new Exception("do not have correct number");
+        return phoneNumber;
     }
 
     private static boolean isInteger(String s) {
         try {
-            Integer.parseInt(s);
-            return s.length() == 10;
+            Long.parseLong(s);
+            return true;
         } catch (NumberFormatException e) {
             return false;
         }
@@ -97,16 +109,20 @@ public class Main {
     //endregion
 
     //region checkDate method
-    public static void checkDate(String[] str) throws Exception {
+    public static String checkDate(String[] str) throws Exception {
         boolean hasDate = false;
-            for (String enter : str) {
-                if (isDate(enter)) {
-                    hasDate = true;
-                }
+        String date = null;
+        for (String enter : str) {
+            if (isDate(enter)) {
+                date = enter;
+                hasDate = true;
             }
+        }
         if (!hasDate)
             throw new Exception("Do not has date");
+        return date;
     }
+
     private static boolean isDate(String s) {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyy");
@@ -119,18 +135,20 @@ public class Main {
     //endregion
 
     ///region checkGender method
-    public static void checkGender(String[] str) throws Exception {
-        boolean hasString = false;
+    public static String checkGender(String[] str) throws Exception {
+        String gender = null;
         boolean hasGender = false;
-        String[] fullName = new String[3];
         for (String enter : str) {
             if (isChar(enter)) {
+                gender = enter;
                 hasGender = true;
             }
         }
         if (!hasGender)
             throw new Exception("not gender");
+        return gender;
     }
+
     private static boolean isChar(String s) {
         if (s.length() == 1)
             return s.equals("f") || s.equals("m");
