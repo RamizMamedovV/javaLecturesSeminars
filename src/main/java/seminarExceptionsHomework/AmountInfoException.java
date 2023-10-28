@@ -1,6 +1,6 @@
 package seminarExceptionsHomework;
 
-public class ArrayLengthException extends RuntimeException{
+public class AmountInfoException extends RuntimeException{
 
     int length;
 
@@ -8,7 +8,7 @@ public class ArrayLengthException extends RuntimeException{
         return length;
     }
 
-    public ArrayLengthException(String message, int length) {
+    public AmountInfoException(String message, int length) {
         super(message);
         this.length = length;
     }

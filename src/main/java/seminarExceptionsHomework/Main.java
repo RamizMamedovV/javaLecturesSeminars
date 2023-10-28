@@ -13,11 +13,11 @@ public class Main {
                 Введите в одну строку в соответствии форматам:
                 Фамилия Имя Отчество(разделённые пробелами строки),
                 дата рождения(формата дд.мм.гггг)
-                номер телефона(формата 89991234567)
+                номер телефона(числовой формат типа 89991234567)
                 пол(символ латиницей f или m)
                 Ввод:\s""";
         String[] user = userInput(str);
-        String[] fio = null;
+        String[] fullName = null;
         long phoneNumber = 0;
         String date = null;
         String gender = null;
@@ -28,21 +28,23 @@ public class Main {
             phoneNumber = checkPhoneNumber(user);
             date = checkDate(user);
             gender = checkGender(user);
-            fio = checkString(user);
-            lastName = fio[0];
+            fullName = checkString(user);
+            lastName = fullName[0];
+        } catch (PhoneNumberFormatException e) {
+            System.out.println(e.getMessage() + e.getPhoneNumber());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 //Magov Mag Magich 11.11.1234 89991234567 m
-        try (FileWriter writer = new FileWriter(lastName)) {
-            writer.write(String.format("<%s>",fio[0]));
-            writer.write(String.format("<%s>",fio[1]));
-            writer.write(String.format("<%s>",fio[2]));
+        try (FileWriter writer = new FileWriter(String.format("%s.txt",lastName),true)) {
+            writer.write(String.format("\n<%s>",fullName[0]));
+            writer.write(String.format("<%s>",fullName[1]));
+            writer.write(String.format("<%s>",fullName[2]));
             writer.write(String.format("<%s>",date));
             writer.write(String.format("<%d>",phoneNumber));
             writer.write(String.format("<%s>",gender));
         } catch (NullPointerException | IOException e) {
-            System.out.println("nnnn");
+            System.out.println(e.getMessage());
         }
 
     }
@@ -68,20 +70,28 @@ public class Main {
      * Проверка на null и соответствие длинны массива
      *
      * @param str массив строк
-     * @throws RuntimeException ArrayNullPointerException и ArrayLengthException
+     * @throws RuntimeException LackDataException и AmountInfoException
      */
     public static void checkLength(String[] str) throws RuntimeException {
         if (str == null)
-            throw new ArrayNullPointerException("отсутствие данных");
+            throw new LackDataException("отсутствие данных");
         else if (str.length != 6)
-            throw new ArrayLengthException(
-                    String.format("Количество введённого не соответствует = 6. " +
+            throw new AmountInfoException(
+                    String.format("Количество введённого не соответствует, ожидается 6. " +
                             "Вы ввели: %d", str.length)
                     , str.length);
     }
     //endregion
 
     //region checkPhoneNumber method
+
+    /**
+     * Проверка на присутствие данных в цифровом формате
+     * @param str массив строк данных
+     * @return номер телефона
+     * @throws PhoneNumberFormatException Отсутствие формата числа или
+     * короткий номер - менее 5 цифр
+     */
     public static long checkPhoneNumber(String[] str) throws Exception {
         long phoneNumber = 0;
         boolean hasInteger = false;
@@ -93,7 +103,12 @@ public class Main {
             }
         }
         if (!hasInteger)
-            throw new Exception("do not have correct number");
+            throw new PhoneNumberFormatException
+                    ("Отсутствует формат числа для номера телефона", 0);
+        else if (phoneNumber <= 9_999) {
+            throw new PhoneNumberFormatException(
+                    "Номер слишком короткий ", phoneNumber);
+        }
         return phoneNumber;
     }
 
@@ -119,13 +134,13 @@ public class Main {
             }
         }
         if (!hasDate)
-            throw new Exception("Do not has date");
+            throw new DateFormatException("Не соответствует формату: дд.мм.гггг");
         return date;
     }
 
     private static boolean isDate(String s) {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyy");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
             dateFormat.parse(s);
             return true;
         } catch (ParseException e) {
@@ -145,7 +160,7 @@ public class Main {
             }
         }
         if (!hasGender)
-            throw new Exception("not gender");
+            throw new GenderFormatException("Не соответствует формату: пол(символ латиницей f или m)");
         return gender;
     }
 
